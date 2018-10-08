@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block body %}
+<body>
+<div style="margin-top:10px;width:100%;height:75px;background-color:black">
+<marquee><h1 style ="font-size:50px;font-family:monotype corsiva;color:white">GITHUB PROFILE ANALYZER</h1></marquee>
+</div>
+<br>
+<br>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WELCOME TO THE LOGIN PAGE OF THE "GITHUB PROFILE ANALYZER"</a>
+      <br>
+    </div>
+  </div>
+</nav>
+<form action="/signin/" method="post" style="padding-top: 50px; ">
+    <div class="form-container">
+        <div class="form-header">
+            <h1 style="font-size:50px, font-style:bold"class="unselectable">WELCOME!! Sign in with your Github Account</h1>
+        </div>
+        <div class="form-login">
+          <label for="userid">USERNAME</label>
+          <input type="text" id="userid" name="userid" class="input_field" required value="{{request.form.userid}}" autofocus="on" autocomplete="off"/>
+          <label for="password">PASSWORD</label>
+          <input type="password" id="password" name="password" class="input_field" required value="{{request.form.password}}" autocomplete="off"/>
+          
+
+          <input type="submit" class="btn btn-primary btn-block"/>
+          <div>
+          {% if error %}
+            <p style="color: red;margin:4px;">Error: {{ error }} </p>
+          {% endif %}            
+          </div>
+        </div>
+    </div>
+  </form>
+</body>
+  
+{% endblock %}
